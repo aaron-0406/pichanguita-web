@@ -1,13 +1,13 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components'
 
 const App = () => {
-  return <StyledContainer>Pichanguita</StyledContainer>;
-};
+  return <StyledContainer>Pichanguita</StyledContainer>
+}
 
-export default App;
+export default App
 
 const StyledContainer = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.Primary6};
   `}
-`;
+`
