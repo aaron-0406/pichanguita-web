@@ -1,9 +1,9 @@
-import { ThemeProvider } from "styled-components";
-import GlobalStyles from "../../styles/GlobalStyles";
-import initialTheme from "../../styles/theme";
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from '../../styles/GlobalStyles'
+import initialTheme from '../../styles/theme'
 
 interface ProvidersProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
@@ -12,5 +12,5 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
       <GlobalStyles />
       {children}
     </ThemeProvider>
-  );
-};
+  )
+}
