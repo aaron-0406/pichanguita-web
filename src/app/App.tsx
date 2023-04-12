@@ -1,13 +1,8 @@
-import styled, { css } from 'styled-components'
+import AppRouter from "../shared/routes/AppRouter"
 
 const App = () => {
-  return <StyledContainer>Pichanguita</StyledContainer>
+  return <AppRouter />
 }
 
 export default App
 
-const StyledContainer = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.Primary6};
-  `}
-`
