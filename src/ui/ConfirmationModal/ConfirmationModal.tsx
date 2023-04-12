@@ -1,47 +1,47 @@
-import type { IThemeColor } from "styled-components";
-import styled, { css } from "styled-components";
-import ReactPortal from "../ReactPortal";
-import { usePortal } from "../../shared/hooks/usePortal";
-import type { ConfirmationModalType } from "./interfaces";
-import Container from "../Container";
-import Icon from "../Icon";
-import Text from "../Text";
+import type { IThemeColor } from 'styled-components'
+import styled, { css } from 'styled-components'
+import ReactPortal from '../ReactPortal'
+import { usePortal } from '../../shared/hooks/usePortal'
+import type { ConfirmationModalType } from './interfaces'
+import Container from '../Container'
+import Icon from '../Icon'
+import Text from '../Text'
 
 const actionsConfig: Record<
   ConfirmationModalType,
   { iconClass: string; color: keyof IThemeColor }
 > = {
   success: {
-    iconClass: "ri-checkbox-circle-line",
-    color: "Success5",
+    iconClass: 'ri-checkbox-circle-line',
+    color: 'Success5',
   },
   error: {
-    iconClass: "ri-close-circle-line",
-    color: "Danger5",
+    iconClass: 'ri-close-circle-line',
+    color: 'Danger5',
   },
   warning: {
-    iconClass: "ri-error-warning-line",
-    color: "Warning4",
+    iconClass: 'ri-error-warning-line',
+    color: 'Warning4',
   },
   info: {
-    iconClass: "ri-error-warning-line",
-    color: "Primary5",
+    iconClass: 'ri-error-warning-line',
+    color: 'Primary5',
   },
-};
+}
 
 export type ModalProps = {
-  id: string;
-  visible?: boolean;
-  className?: string;
-  onClose?: () => void;
-  clickOutsideToClose?: () => void;
-  body?: React.ReactNode;
-  footer?: React.ReactNode;
-  withPortal?: boolean;
-  title?: React.ReactNode;
-  description?: React.ReactNode;
-  type?: ConfirmationModalType;
-};
+  id: string
+  visible?: boolean
+  className?: string
+  onClose?: () => void
+  clickOutsideToClose?: () => void
+  body?: React.ReactNode
+  footer?: React.ReactNode
+  withPortal?: boolean
+  title?: React.ReactNode
+  description?: React.ReactNode
+  type?: ConfirmationModalType
+}
 
 const ConfirmationModal: React.FC<ModalProps> = (props) => {
   const {
@@ -55,11 +55,11 @@ const ConfirmationModal: React.FC<ModalProps> = (props) => {
     title,
     description,
     type,
-  } = props;
+  } = props
 
-  const portal = usePortal(`${id}-portal`);
+  const portal = usePortal(`${id}-portal`)
 
-  const config = type && actionsConfig[type];
+  const config = type && actionsConfig[type]
 
   return (
     <ReactPortal element={withPortal ? portal : undefined}>
@@ -123,8 +123,8 @@ const ConfirmationModal: React.FC<ModalProps> = (props) => {
         </StyledBackdrop>
       )}
     </ReactPortal>
-  );
-};
+  )
+}
 
 const StyledBackdrop = styled(Container)`
   ${({ theme }) => css`
@@ -137,7 +137,7 @@ const StyledBackdrop = styled(Container)`
       background: ${theme.colors.TransparentDark};
     }
   `}
-`;
+`
 
 const StyledModalBox = styled(Container)`
   ${({ theme }) => css`
@@ -154,10 +154,10 @@ const StyledModalBox = styled(Container)`
       }
     }
   `}
-`;
+`
 
 const StyledContent = styled(Container)`
   flex-grow: 1;
-`;
+`
 
-export default ConfirmationModal;
+export default ConfirmationModal

@@ -19,8 +19,8 @@ const AppRouter = () => {
       <Route path={paths.error} element={<ErrorPage />} />
       <Route path={paths.general.notFound} element={<NotFound />} />
 
-      <Route path={paths.auth.signin} element={<Login />}/>
-      <Route path={paths.auth.signup} element={<Singup />}/>
+      <Route path={paths.auth.signin} element={<Login />} />
+      <Route path={paths.auth.signup} element={<Singup />} />
 
       <Route path="*" element={<NotFound />} />
     </AppSwitch>

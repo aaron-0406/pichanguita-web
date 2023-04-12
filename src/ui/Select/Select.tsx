@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react";
-import type { HTMLAttributes } from "react";
-import type CSS from "csstype";
-import styled, { css } from "styled-components";
-import Container from "../Container";
-import DropdownList from "../DropdownList";
-import HelperText from "../HelperText";
-import Icon from "../Icon";
-import Text from "../Text";
-import type { HelperFieldProps, LabelFieldProps } from "../fields/interfaces";
-import InputLabel from "../Label";
-import type { SelectItem, SelectSize } from "./interfaces";
+import { useEffect, useState } from 'react'
+import type { HTMLAttributes } from 'react'
+import type CSS from 'csstype'
+import styled, { css } from 'styled-components'
+import Container from '../Container'
+import DropdownList from '../DropdownList'
+import HelperText from '../HelperText'
+import Icon from '../Icon'
+import Text from '../Text'
+import type { HelperFieldProps, LabelFieldProps } from '../fields/interfaces'
+import InputLabel from '../Label'
+import type { SelectItem, SelectSize } from './interfaces'
 
 type SelectProps<T, K> = LabelFieldProps &
   HelperFieldProps &
-  Omit<HTMLAttributes<HTMLUListElement>, "onChange" | "value"> & {
-    width?: string;
-    size?: SelectSize;
-    options?: Array<SelectItem<T, K>>;
-    value?: T;
-    onChange?: (value: T, option: SelectItem<T, K>) => void;
-  };
+  Omit<HTMLAttributes<HTMLUListElement>, 'onChange' | 'value'> & {
+    width?: string
+    size?: SelectSize
+    options?: Array<SelectItem<T, K>>
+    value?: T
+    onChange?: (value: T, option: SelectItem<T, K>) => void
+  }
 
 const Select = <T extends string, K extends Record<string, unknown>>(
   props: SelectProps<T, K>
@@ -30,7 +30,7 @@ const Select = <T extends string, K extends Record<string, unknown>>(
     disabled,
     label,
     width,
-    size = "default",
+    size = 'default',
     hasError = false,
     tooltipMessage,
     optional,
@@ -41,39 +41,39 @@ const Select = <T extends string, K extends Record<string, unknown>>(
     onChange,
     defaultValue,
     ...rest
-  } = props;
+  } = props
 
   const [state, setState] = useState<SelectItem<T, K> | undefined>({
     key: defaultValue as T,
     label: options?.find(
       (option) => option.key === value || option.key === defaultValue
     )?.label as T,
-  });
+  })
 
-  const [toggleSelect, setToggleSelect] = useState<boolean>(false);
+  const [toggleSelect, setToggleSelect] = useState<boolean>(false)
 
   const onSelectToogle = () => {
     if (!disabled) {
-      setToggleSelect(!toggleSelect);
+      setToggleSelect(!toggleSelect)
     } else {
-      setToggleSelect(false);
+      setToggleSelect(false)
     }
-  };
+  }
 
   const onSelectItem = (option: SelectItem<T, K>) => {
-    setState(option);
-    onChange?.(option.key, option);
-  };
+    setState(option)
+    onChange?.(option.key, option)
+  }
 
   useEffect(() => {
     if (value) {
       setState({
         key: value,
         label: options?.find((option) => option.key === value)?.label as T,
-      });
+      })
     }
     // eslint-disable-next-line
-  }, [value]);
+  }, [value])
 
   return (
     <StyledWrapper width={width}>
@@ -96,10 +96,10 @@ const Select = <T extends string, K extends Record<string, unknown>>(
           tabIndex={1}
         >
           <Text.Body
-            size={size === "default" ? "m" : "l"}
+            size={size === 'default' ? 'm' : 'l'}
             weight="regular"
             className="select__text"
-            color={disabled ? "Neutral5" : "Neutral8"}
+            color={disabled ? 'Neutral5' : 'Neutral8'}
             ellipsis
           >
             {!state?.label || !value ? placeholder : state?.label}
@@ -149,22 +149,22 @@ const Select = <T extends string, K extends Record<string, unknown>>(
         {helperText}
       </HelperText>
     </StyledWrapper>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select
 
 const StyledSelect = styled.div<{
-  $disabled?: boolean;
-  $hasError?: boolean;
-  $size: SelectSize;
+  $disabled?: boolean
+  $hasError?: boolean
+  $size: SelectSize
 }>`
   ${({ theme, $disabled, $hasError, $size }) => css`
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: auto;
-    height: ${$size === "default" ? "40px" : "48px"};
+    height: ${$size === 'default' ? '40px' : '48px'};
     background: ${theme.colors.Neutral0};
     border: 2px solid ${theme.colors.Neutral4};
     border-radius: 8px;
@@ -221,14 +221,14 @@ const StyledSelect = styled.div<{
       }
     `}
   `}
-`;
+`
 
 const StyledWrapper = styled.div<{ width?: CSS.Property.Width }>`
   ${({ theme, width }) => css`
-    width: ${!!width ? width : "auto"};
+    width: ${!!width ? width : 'auto'};
     display: flex;
     flex-direction: column;
     gap: 4px;
     color: ${theme.colors.Neutral6};
   `}
-`;
+`

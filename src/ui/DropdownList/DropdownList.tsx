@@ -1,23 +1,23 @@
-import type { HTMLAttributes } from "react";
-import styled, { css } from "styled-components";
-import Container from "../Container";
-import DropdownItem from "../DropdownItem";
-import Text from "../Text";
-import emptyFolder from "../../shared/assets/icons/emptyFolder.svg";
-import type { SelectItem } from "../Select/interfaces";
-import type { DropdownListSize } from "./interfaces";
+import type { HTMLAttributes } from 'react'
+import styled, { css } from 'styled-components'
+import Container from '../Container'
+import DropdownItem from '../DropdownItem'
+import Text from '../Text'
+import emptyFolder from '../../shared/assets/icons/emptyFolder.svg'
+import type { SelectItem } from '../Select/interfaces'
+import type { DropdownListSize } from './interfaces'
 
 type DropdownListProps<T, K> = HTMLAttributes<HTMLUListElement> & {
-  size?: DropdownListSize;
-  options?: Array<SelectItem<T, K>>;
-  onSelectItem: (option: SelectItem<T, K>) => void;
-  value?: T;
-};
+  size?: DropdownListSize
+  options?: Array<SelectItem<T, K>>
+  onSelectItem: (option: SelectItem<T, K>) => void
+  value?: T
+}
 
 const DropdownList = <T extends string, K extends Record<string, unknown>>(
   props: DropdownListProps<T, K>
 ) => {
-  const { size = "default", options, onSelectItem, value, ...rest } = props;
+  const { size = 'default', options, onSelectItem, value, ...rest } = props
 
   return (
     <StyledDropdownList $size={size} {...rest}>
@@ -35,7 +35,7 @@ const DropdownList = <T extends string, K extends Record<string, unknown>>(
               trailingIcon={option.trailingIcon}
               onClick={() => onSelectItem(option)}
             />
-          );
+          )
         })
       ) : (
         <Container
@@ -64,17 +64,17 @@ const DropdownList = <T extends string, K extends Record<string, unknown>>(
         </Container>
       )}
     </StyledDropdownList>
-  );
-};
+  )
+}
 
-export default DropdownList;
+export default DropdownList
 
 const StyledDropdownList = styled.ul<{ $size: DropdownListSize }>`
   ${({ theme, $size }) => css`
     width: 100%;
     height: auto;
     background-color: ${theme.colors.Neutral0};
-    max-height: ${$size === "default" ? "280px" : "336px"};
+    max-height: ${$size === 'default' ? '280px' : '336px'};
     overflow-y: auto;
     position: absolute;
     padding: 0;
@@ -85,4 +85,4 @@ const StyledDropdownList = styled.ul<{ $size: DropdownListSize }>`
     box-shadow: ${theme.shadows.elevationLow};
     z-index: ${theme.zIndex.dropdown};
   `}
-`;
+`

@@ -1,8 +1,5 @@
-
 const Singup = () => {
-
-    return <>Registrate</>
-
+  return <>Registrate</>
 }
 
-export default Singup;
+export default Singup

@@ -1,17 +1,17 @@
-import styled, { css } from "styled-components";
-import Button from "../../Button";
-import Container from "../../Container";
-import Text from "../../Text";
+import styled, { css } from 'styled-components'
+import Button from '../../Button'
+import Container from '../../Container'
+import Text from '../../Text'
 
 type ModalHeaderProps = {
-  title?: React.ReactNode | string;
-  onBack?: () => void;
-  onClose?: () => void;
-  backTitle?: string;
-};
+  title?: React.ReactNode | string
+  onBack?: () => void
+  onClose?: () => void
+  backTitle?: string
+}
 
 const ModalHeader: React.FC<ModalHeaderProps> = (props) => {
-  const { title, onBack, onClose, backTitle = "Back" } = props;
+  const { title, onBack, onClose, backTitle = 'Back' } = props
 
   return (
     <StyledContainerHeader
@@ -61,13 +61,13 @@ const ModalHeader: React.FC<ModalHeaderProps> = (props) => {
         </Container>
       )}
     </StyledContainerHeader>
-  );
-};
+  )
+}
 
-export default ModalHeader;
+export default ModalHeader
 
 const StyledContainerHeader = styled(Container)`
   ${({ theme }) => css`
     border-bottom: 1px solid ${theme.colors.Neutral4};
   `}
-`;
+`

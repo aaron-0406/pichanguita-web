@@ -1,26 +1,26 @@
-import { forwardRef } from "react";
-import type { ReactNode } from "react";
-import styled, { css } from "styled-components";
-import Container from "../../Container";
-import Icon from "../../Icon";
-import type { InputProps } from "../Input/Input";
-import Input from "../Input";
-import type { InputSize } from "../Input/Input.interfaces";
-import Text from "../../Text";
+import { forwardRef } from 'react'
+import type { ReactNode } from 'react'
+import styled, { css } from 'styled-components'
+import Container from '../../Container'
+import Icon from '../../Icon'
+import type { InputProps } from '../Input/Input'
+import Input from '../Input'
+import type { InputSize } from '../Input/Input.interfaces'
+import Text from '../../Text'
 
 type InputTextProps = InputProps & {
-  tooltipMessage?: string;
-  leadingIcon?: string;
-  trailingIcon?: string;
-  suffix?: ReactNode;
-  optional?: boolean;
-  hasError?: boolean;
-  width?: string;
-  onClear?: () => void;
-  onClickTrailingIcon?: () => void;
-  clearInput?: boolean;
-  numberCharacters?: number;
-};
+  tooltipMessage?: string
+  leadingIcon?: string
+  trailingIcon?: string
+  suffix?: ReactNode
+  optional?: boolean
+  hasError?: boolean
+  width?: string
+  onClear?: () => void
+  onClickTrailingIcon?: () => void
+  clearInput?: boolean
+  numberCharacters?: number
+}
 
 const InputText = forwardRef(
   (
@@ -41,11 +41,11 @@ const InputText = forwardRef(
       leadingIcon,
       trailingIcon,
       numberCharacters,
-      size = "small",
+      size = 'small',
       hasError = false,
       clearInput = false,
       ...rest
-    } = props;
+    } = props
 
     return (
       <StyledInputWrapper
@@ -116,25 +116,25 @@ const InputText = forwardRef(
           )
         )}
       </StyledInputWrapper>
-    );
+    )
   }
-);
+)
 
-InputText.displayName = "InputText";
+InputText.displayName = 'InputText'
 
-export default InputText;
+export default InputText
 
 const StyledInputWrapper = styled.div<{
-  $disabled?: boolean;
-  $hasError?: boolean;
-  $size: InputSize;
-  $width?: string;
+  $disabled?: boolean
+  $hasError?: boolean
+  $size: InputSize
+  $width?: string
 }>`
   ${({ theme, $disabled, $hasError, $size, $width }) => css`
     display: flex;
     align-items: center;
-    width: ${!!$width ? $width : "auto"};
-    height: ${$size === "small" ? "40px" : "48px"};
+    width: ${!!$width ? $width : 'auto'};
+    height: ${$size === 'small' ? '40px' : '48px'};
     color: ${theme.colors.Neutral6};
     background: ${theme.colors.Neutral0};
     border: 2px solid ${theme.colors.Neutral4};
@@ -205,4 +205,4 @@ const StyledInputWrapper = styled.div<{
       }
     `}
   `}
-`;
+`

@@ -1,22 +1,22 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/aria-role */
-import React, { useState } from "react";
+import React, { useState } from 'react'
 
-export type ImgProps = React.ComponentProps<"img"> & {
-  placeholderImage: string;
-  placeholderProps?: React.ComponentProps<"img">;
-};
+export type ImgProps = React.ComponentProps<'img'> & {
+  placeholderImage: string
+  placeholderProps?: React.ComponentProps<'img'>
+}
 
 const Img: React.FC<ImgProps> = ({
   placeholderImage,
   placeholderProps,
   ...props
 }) => {
-  const [imageUploadError, setImageUploadError] = useState<boolean>(false);
+  const [imageUploadError, setImageUploadError] = useState<boolean>(false)
 
   const onSetImageUploadError = () => {
-    setImageUploadError(true);
-  };
+    setImageUploadError(true)
+  }
 
   return (
     <>
@@ -31,7 +31,7 @@ const Img: React.FC<ImgProps> = ({
         />
       )}
     </>
-  );
-};
+  )
+}
 
-export default Img;
+export default Img

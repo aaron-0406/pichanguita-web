@@ -1,15 +1,15 @@
-import * as React from "react";
-import toast from "react-hot-toast";
-import AlertNotification from "../AlertNotification";
-import { config } from "../AlertNotification";
-import type { AlertNotificationType } from "../AlertNotification/interfaces";
+import * as React from 'react'
+import toast from 'react-hot-toast'
+import AlertNotification from '../AlertNotification'
+import { config } from '../AlertNotification'
+import type { AlertNotificationType } from '../AlertNotification/interfaces'
 
 type NotificationProps = {
-  type: AlertNotificationType;
-  message: React.ReactNode;
-  icon?: boolean;
-  close?: boolean;
-};
+  type: AlertNotificationType
+  message: React.ReactNode
+  icon?: boolean
+  close?: boolean
+}
 
 /**
  * notification
@@ -39,5 +39,5 @@ export const notification = ({
       />
     ),
     { duration: config[type].duration }
-  );
-};
+  )
+}

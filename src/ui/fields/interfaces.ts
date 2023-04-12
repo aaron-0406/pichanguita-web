@@ -1,14 +1,14 @@
-import type { HelperTextProps } from "../HelperText";
-import type { LabelProps } from "../Label";
+import type { HelperTextProps } from '../HelperText'
+import type { LabelProps } from '../Label'
 
 export type LabelFieldProps = Pick<
   LabelProps,
-  "label" | "disabled" | "optional" | "required" | "tooltipMessage" | "name"
->;
+  'label' | 'disabled' | 'optional' | 'required' | 'tooltipMessage' | 'name'
+>
 
 export type HelperFieldProps = Pick<
   HelperTextProps,
-  "wrap" | "hasError" | "disabled" | "charactersLimit"
+  'wrap' | 'hasError' | 'disabled' | 'charactersLimit'
 > & {
-  helperText?: string;
-};
+  helperText?: string
+}

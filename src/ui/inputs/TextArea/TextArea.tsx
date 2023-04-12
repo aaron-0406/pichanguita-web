@@ -1,29 +1,29 @@
-import type { TextareaHTMLAttributes } from "react";
-import styled, { css, useTheme } from "styled-components";
-import type { IRegular } from "styled-components";
+import type { TextareaHTMLAttributes } from 'react'
+import styled, { css, useTheme } from 'styled-components'
+import type { IRegular } from 'styled-components'
 
-export type TextAreaSizeType = "small" | "medium";
+export type TextAreaSizeType = 'small' | 'medium'
 
 export type TextAreaProps = Omit<
   TextareaHTMLAttributes<HTMLTextAreaElement>,
-  "size"
+  'size'
 > & {
-  size?: TextAreaSizeType;
-};
+  size?: TextAreaSizeType
+}
 
 const TextArea: React.FC<TextAreaProps> = (props) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const textStyle = theme.typography.body.l.regular;
+  const textStyle = theme.typography.body.l.regular
 
-  return <StyledTextArea {...textStyle} {...props} />;
-};
+  return <StyledTextArea {...textStyle} {...props} />
+}
 
-export default TextArea;
+export default TextArea
 
 type StyledTextAreaProps = IRegular & {
-  size?: TextAreaSizeType;
-};
+  size?: TextAreaSizeType
+}
 
 /**
  * Styled TextArea Component
@@ -45,4 +45,4 @@ const StyledTextArea = styled.textarea<StyledTextAreaProps>`
       color: ${props.theme.colors.Neutral5};
     }
   `}
-`;
+`
