@@ -145,16 +145,6 @@ const StyledButton = styled.button<{
 
   ${({ shape, size }) => getButtonSize(size, shape === 'round')}
 
-  ${({ shape }) =>
-    shape === 'default' &&
-    css`
-      .button__container {
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-      }
-    `}
-
   ${({ theme, hierarchy, display, $loading }) => {
     const config = style(theme.colors)[`${hierarchy}-${display}`]
 
@@ -266,6 +256,20 @@ const StyledButton = styled.button<{
       `}
     `
   }}
+  
+  ${({ shape }) =>
+    (shape === 'pill' &&
+      css`
+        border-radius: 5px;
+      `) ||
+    (shape === 'default' &&
+      css`
+        .button__container {
+          display: flex;
+          gap: 8px;
+          justify-content: center;
+        }
+      `)}
 
   ${({ hierarchy, size }) =>
     hierarchy === 'link' &&

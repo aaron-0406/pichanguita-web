@@ -6,8 +6,11 @@ const OPACITY_0_8 = 0.8
 
 export type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   display?: CSS.Property.Display
+  alignSelf?: CSS.Property.AlignSelf
   alignItems?: CSS.Property.AlignItems
   justifyContent?: CSS.Property.JustifyContent
+  justifyItems?: CSS.Property.JustifyItems
+  justifySelf?: CSS.Property.JustifySelf
   textAlign?: CSS.Property.TextAlign
   position?: CSS.Property.Position
   centered?: boolean
@@ -20,6 +23,7 @@ export type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   width?: CSS.Property.Width
   flexDirection?: CSS.Property.FlexDirection
   padding?: CSS.Property.Padding
+  marginTop?: CSS.Property.MarginTop
   margin?: CSS.Property.Margin
   flexWrap?: CSS.Property.FlexWrap
   gap?: CSS.Property.Gap
@@ -85,16 +89,40 @@ export const StyledContainer = styled.div<ContainerProps>`
       margin: ${margin};
     `}
 
+  ${({ marginTop }) =>
+    !!marginTop &&
+    css`
+      margin-top: ${marginTop};
+    `}
+
   ${({ alignItems }) =>
     !!alignItems &&
     css`
       align-items: ${alignItems};
     `}
 
+  ${({ alignSelf }) =>
+    !!alignSelf &&
+    css`
+      align-self: ${alignSelf};
+    `}
+
   ${({ justifyContent }) =>
     !!justifyContent &&
     css`
       justify-content: ${justifyContent};
+    `}
+
+  ${({ justifySelf }) =>
+    !!justifySelf &&
+    css`
+      justify-self: ${justifySelf};
+    `}
+
+  ${({ justifyItems}) =>
+    !!justifyItems &&
+    css`
+      justify-items: ${justifyItems};
     `}
 
   ${({ textAlign }) =>

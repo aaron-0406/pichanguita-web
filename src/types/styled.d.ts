@@ -13,6 +13,7 @@ declare module 'styled-components' {
   }
 
   export interface IThemeColor {
+    Link: string
     Primary1: string
     Primary2: string
     Primary3: string

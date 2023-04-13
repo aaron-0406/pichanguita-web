@@ -9,8 +9,8 @@ import ErrorPage from '../../../pages/ErrorPage'
 import AppSwitch from '../AppSwitch'
 
 import paths from '../paths'
-import Login from '../../../pages/Login'
-import Singup from '../../../pages/Singup'
+import Login from '../../../pages/DashBoard/Login'
+import Singup from '../../../pages/DashBoard/Singup'
 
 const AppRouter = () => {
   return (

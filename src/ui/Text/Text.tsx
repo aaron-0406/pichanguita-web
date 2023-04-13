@@ -52,6 +52,7 @@ type TextColor = Pick<
   | 'Neutral9'
   | 'Danger5'
   | 'Primary5'
+  | 'Link'
 >
 
 type TextProps = SpanProps & {
