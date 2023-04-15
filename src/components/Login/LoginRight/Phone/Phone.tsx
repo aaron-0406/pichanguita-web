@@ -9,6 +9,10 @@ import iconPeru from '../../../../shared/assets/icons/peru.png'
 const Phone = () => {
   const [displayImage, setDisplayImage] = useState('none')
 
+  const onHandleClick = () => {
+    setDisplayImage('block')
+  }
+
   return (
     <Container height={'42px'} width={'300px'} display="flex" justifyContent="space-between" alignItems="center">
       <InputText
@@ -16,9 +20,7 @@ const Phone = () => {
         numberCharacters={9}
         width="230px"
         visibleImage={displayImage}
-        onClick={() => {
-          setDisplayImage('block')
-        }}
+        onClick={onHandleClick}
       />
       <Button label="➜" width="60px" size="small" shape="pill" />
     </Container>
