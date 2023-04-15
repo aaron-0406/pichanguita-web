@@ -11,8 +11,8 @@ const Phone = () => {
 
   return (
     <Container
-      height={'42px'}
-      width={'300px'}
+      height="42px"
+      width="300px"
       display="flex"
       justifyContent="space-between"
       alignItems="center"

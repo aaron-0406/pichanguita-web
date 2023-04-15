@@ -11,27 +11,26 @@ import jugadorImg from '../../../shared/assets/img/loginJugador.png'
 const LoginLeft = () => {
   return (
     <Container
-      className={'active login-left'}
-      width={'35%'}
-      height={'90%'}
-      display={'flex'}
-      flexDirection={'column'}
-      alignItems={'center'}
-      justifyContent={'center'}
-      // backgroundColor={'#EBF6FC'}
+      className="active login-left"
+      width="35%"
+      height="90%"
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      justifyContent="center"
     >
-      <Container width={'80%'} minWidth={'300px'} maxWidth={'350px'}>
-        <Img placeholderImage={jugadorImg} width={'100%'} />
+      <Container width="80%" minWidth="300px" maxWidth="350px">
+        <Img placeholderImage={jugadorImg} width="100%" />
       </Container>
-      <Button label={'Crear Cuenta'} size="small" width="250px"></Button>
+      <Button label="Crear Cuenta" size="small" width="250px"></Button>
       <StylesLinks
-        width={'200px'}
-        height={'20px'}
-        display={'flex'}
-        justifyContent={'space-between'}
+        width="200px"
+        height="20px"
+        display="flex"
+        justifyContent="space-between"
         position="absolute"
-        bottom={'10px'}
-        left={'calc(50% - 100px)'}
+        bottom="10px"
+        left="calc(50% - 100px)"
       >
         <NavLink
           to={
@@ -61,8 +60,8 @@ export default LoginLeft
 
 const StylesLinks = styled(Container)`
   ${({ theme }) => css`
-      @media ${theme.device.desktopS} {
-        left: 20px;
-      }
+    @media ${theme.device.desktopS} {
+      left: 20px;
+    }
   `}
 `
