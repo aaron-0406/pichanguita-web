@@ -8,10 +8,7 @@ interface Props {
 }
 
 const ClickOutSideComponent = ({ children, className, callback }: Props) => {
-  const useClickOutside = (
-    action: Function,
-    ref: React.RefObject<HTMLDivElement>
-  ) => {
+  const useClickOutside = (action: Function, ref: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
       const handleMouseDown = (e: MouseEvent) => {
         if (ref.current && !ref.current?.contains(e.target as Node)) action()

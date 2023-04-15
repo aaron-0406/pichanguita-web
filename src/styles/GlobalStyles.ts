@@ -38,6 +38,7 @@ hr {
   height: 0px;
   color: inherit;
   border-top-width: 1px;
+  background-color: #e5e7eb
 }
 
 abbr:where([title]) {

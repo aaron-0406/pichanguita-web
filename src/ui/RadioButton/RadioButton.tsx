@@ -13,13 +13,7 @@ export type RadioButtonProps = React.HTMLProps<HTMLInputElement> &
   }
 
 const RadioButton: React.FC<RadioButtonProps> = (props) => {
-  const {
-    children,
-    flexDirection,
-    justifyContent,
-    containerClassName,
-    ...rest
-  } = props
+  const { children, flexDirection, justifyContent, containerClassName, ...rest } = props
 
   return (
     <StyledRadioButton

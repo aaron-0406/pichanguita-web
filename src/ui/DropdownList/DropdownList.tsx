@@ -14,9 +14,7 @@ type DropdownListProps<T, K> = HTMLAttributes<HTMLUListElement> & {
   value?: T
 }
 
-const DropdownList = <T extends string, K extends Record<string, unknown>>(
-  props: DropdownListProps<T, K>
-) => {
+const DropdownList = <T extends string, K extends Record<string, unknown>>(props: DropdownListProps<T, K>) => {
   const { size = 'default', options, onSelectItem, value, ...rest } = props
 
   return (
@@ -46,19 +44,9 @@ const DropdownList = <T extends string, K extends Record<string, unknown>>(
           flexDirection="column"
           gap="16px"
         >
-          <img
-            src={emptyFolder}
-            alt="Empty folder"
-            width="58px"
-            height="40px"
-          />
+          <img src={emptyFolder} alt="Empty folder" width="58px" height="40px" />
 
-          <Text.Body
-            size="m"
-            weight="regular"
-            className="empty"
-            color="Neutral8"
-          >
+          <Text.Body size="m" weight="regular" className="empty" color="Neutral8">
             No data
           </Text.Body>
         </Container>

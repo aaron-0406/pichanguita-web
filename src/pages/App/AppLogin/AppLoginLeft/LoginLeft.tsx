@@ -1,28 +1,37 @@
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
-import Container from '../../../ui/Container'
-import Img from '../../../ui/Img'
-import Button from '../../../ui/Button'
-import Text from '../../../ui/Text'
+import { useMediaQuery } from '../../../../shared/hooks/useMediaQuery'
+import { device } from '../../../../shared/breakpoints/reponsive'
 
-import jugadorImg from '../../../shared/assets/img/loginJugador.png'
+import Container from '../../../../ui/Container'
+import Img from '../../../../ui/Img'
+import Button from '../../../../ui/Button'
+import Text from '../../../../ui/Text'
+
+import jugadorImg from '../../../../shared/assets/img/loginJugador.png'
 
 const LoginLeft = () => {
+  const greaterThanDesktopS = useMediaQuery(device.desktopS)
+
   return (
-    <Container
+    <Styles
       className="active login-left"
       width="35%"
       height="90%"
-      display="flex"
+      display="none"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
     >
-      <Container width="80%" minWidth="300px" maxWidth="350px">
+      <Container width={!greaterThanDesktopS ? '300px' : '400px'}>
         <Img placeholderImage={jugadorImg} width="100%" />
       </Container>
-      <Button label="Crear Cuenta" size="small" width="250px"></Button>
+      <NavLink to="/app/registrarse" className="btn-registrar">
+        <Text.Body size="l" weight="bold" color="Neutral0">
+          Home
+        </Text.Body>
+      </NavLink>
       <StylesLinks
         width="200px"
         height="20px"
@@ -52,11 +61,30 @@ const LoginLeft = () => {
           </Text.Body>
         </NavLink>
       </StylesLinks>
-    </Container>
+    </Styles>
   )
 }
 
 export default LoginLeft
+
+const Styles = styled(Container)`
+  ${({ theme }) => css`
+    .btn-registrar {
+      width: 200px;
+      height: 40px;
+      border-radius: 25px;
+      background-color: ${theme.colors.Primary4};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media ${theme.device.desktopS} {
+      .btn-registrar {
+        width: 250px;
+      }
+    }
+  `}
+`
 
 const StylesLinks = styled(Container)`
   ${({ theme }) => css`

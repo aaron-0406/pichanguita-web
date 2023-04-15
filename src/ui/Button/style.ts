@@ -2,7 +2,7 @@ import type { IThemeColor } from 'styled-components'
 
 const style = (colors: IThemeColor) => ({
   'primary-default': {
-    background: colors.Primary5,
+    background: colors.Primary4,
     border: `2px solid ${colors.Primary5}`,
     color: colors.Neutral0,
     badgeBorder: `2px solid ${colors.Neutral0}`,

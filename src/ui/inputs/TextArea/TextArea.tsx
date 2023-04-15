@@ -4,10 +4,7 @@ import type { IRegular } from 'styled-components'
 
 export type TextAreaSizeType = 'small' | 'medium'
 
-export type TextAreaProps = Omit<
-  TextareaHTMLAttributes<HTMLTextAreaElement>,
-  'size'
-> & {
+export type TextAreaProps = Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> & {
   size?: TextAreaSizeType
 }
 

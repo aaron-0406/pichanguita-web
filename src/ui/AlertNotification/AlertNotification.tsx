@@ -44,14 +44,7 @@ type AlertNotificationProps = {
 }
 
 const AlertNotification: React.FC<AlertNotificationProps> = (props) => {
-  const {
-    type,
-    message,
-    idToast,
-    visible = false,
-    icon = true,
-    close = false,
-  } = props
+  const { type, message, idToast, visible = false, icon = true, close = false } = props
 
   const config = notificationConfig[type]
 
@@ -61,20 +54,9 @@ const AlertNotification: React.FC<AlertNotificationProps> = (props) => {
 
   return (
     <StyledNotification visible={visible}>
-      <StyledWrapper
-        display="flex"
-        gap="8px"
-        justifyContent="space-between"
-        type={type}
-      >
+      <StyledWrapper display="flex" gap="8px" justifyContent="space-between" type={type}>
         <Container display="flex" gap="8px">
-          {icon && (
-            <Icon
-              remixClass={config.iconClass}
-              color={config.color}
-              size={24}
-            />
-          )}
+          {icon && <Icon remixClass={config.iconClass} color={config.color} size={24} />}
 
           <Text.Body size="m" weight="regular">
             {message}
@@ -117,12 +99,10 @@ const StyledNotification = styled(Container)<{ visible: boolean }>`
   ${({ visible }) =>
     visible
       ? css`
-          animation: ${enterAnimation} 500ms cubic-bezier(0.21, 1.02, 0.73, 1)
-            forwards;
+          animation: ${enterAnimation} 500ms cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
         `
       : css`
-          animation: ${exitAnimation} 0.4s forwards
-            cubic-bezier(0.06, 0.71, 0.55, 1);
+          animation: ${exitAnimation} 0.4s forwards cubic-bezier(0.06, 0.71, 0.55, 1);
         `}
 `
 

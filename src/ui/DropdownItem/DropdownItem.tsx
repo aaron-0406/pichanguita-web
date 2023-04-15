@@ -15,15 +15,7 @@ type DropdownProps = LiHTMLAttributes<HTMLLIElement> & {
 }
 
 const DropdownItem: React.FC<DropdownProps> = (props) => {
-  const {
-    leadingIcon,
-    text,
-    suffix,
-    trailingIcon,
-    size = 'default',
-    active = false,
-    ...rest
-  } = props
+  const { leadingIcon, text, suffix, trailingIcon, size = 'default', active = false, ...rest } = props
 
   const iconSizeDefault = 16
   const iconLargeDefault = 20
@@ -32,27 +24,13 @@ const DropdownItem: React.FC<DropdownProps> = (props) => {
     <StyledLi $size={size} $active={active} {...rest}>
       <Container display="flex" alignItems="center" gap="8px">
         {!!leadingIcon && (
-          <Container
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            width="24px"
-            height="24px"
-          >
-            <Icon
-              size={size === 'default' ? iconSizeDefault : iconLargeDefault}
-              remixClass={leadingIcon}
-            />
+          <Container display="flex" justifyContent="center" alignItems="center" width="24px" height="24px">
+            <Icon size={size === 'default' ? iconSizeDefault : iconLargeDefault} remixClass={leadingIcon} />
           </Container>
         )}
 
         {!!text && (
-          <Text.Body
-            size={size === 'default' ? 'm' : 'l'}
-            weight="regular"
-            className="prefix__text"
-            color="Neutral8"
-          >
+          <Text.Body size={size === 'default' ? 'm' : 'l'} weight="regular" className="prefix__text" color="Neutral8">
             {text}
           </Text.Body>
         )}
@@ -66,17 +44,8 @@ const DropdownItem: React.FC<DropdownProps> = (props) => {
         )}
 
         {!!trailingIcon && active && (
-          <Container
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            width="24px"
-            height="24px"
-          >
-            <Icon
-              size={size === 'default' ? iconSizeDefault : iconLargeDefault}
-              remixClass={trailingIcon}
-            />
+          <Container display="flex" justifyContent="center" alignItems="center" width="24px" height="24px">
+            <Icon size={size === 'default' ? iconSizeDefault : iconLargeDefault} remixClass={trailingIcon} />
           </Container>
         )}
       </Container>

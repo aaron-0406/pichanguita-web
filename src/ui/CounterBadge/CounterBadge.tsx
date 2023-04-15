@@ -24,15 +24,8 @@ const CounterBadge: React.FC<CounterBadgeProps> = ({
   }
 
   return (
-    <StyledCounter
-      background={background}
-      className={`counter ${containerClassName}`}
-    >
-      <StyledCounterText
-        {...textStyle}
-        className={`counter__content ${contentClassName}`}
-        color={color}
-      >
+    <StyledCounter background={background} className={`counter ${containerClassName}`}>
+      <StyledCounterText {...textStyle} className={`counter__content ${contentClassName}`} color={color}>
         {label}
       </StyledCounterText>
     </StyledCounter>

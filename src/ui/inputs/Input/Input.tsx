@@ -12,30 +12,15 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
 const Input = forwardRef(
   (
     props: InputProps,
-    ref:
-      | ((instance: HTMLInputElement | null) => void)
-      | React.RefObject<HTMLInputElement>
-      | null
-      | undefined
+    ref: ((instance: HTMLInputElement | null) => void) | React.RefObject<HTMLInputElement> | null | undefined
   ) => {
     const { size = 'small', ...rest } = props
 
     const theme = useTheme()
 
-    const textStyle =
-      size === 'small'
-        ? theme.typography.body.m.regular
-        : theme.typography.body.l.regular
+    const textStyle = size === 'small' ? theme.typography.body.m.regular : theme.typography.body.l.regular
 
-    return (
-      <StyledInput
-        ref={ref}
-        className="input-field"
-        autoComplete="off"
-        {...textStyle}
-        {...rest}
-      />
-    )
+    return <StyledInput ref={ref} className="input-field" autoComplete="off" {...textStyle} {...rest} />
   }
 )
 

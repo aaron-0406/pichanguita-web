@@ -19,20 +19,7 @@ const MONTH_NAMES = [
   'Diciembre',
 ]
 
-const MONTH_SHORT_NAMES = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
-]
+const MONTH_SHORT_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const DAYS = ['D', 'L', 'M', 'M', 'J', 'V', 'S']
 
@@ -99,18 +86,12 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
     let formattedDate = ('0' + date.getDate()).slice(-2)
     let formattedMonth = MONTH_NAMES[date.getMonth()]
     let formattedMonthShortName = MONTH_SHORT_NAMES[date.getMonth()]
-    let formattedMonthInNumber = ('0' + (parseInt(date.getMonth()) + 1)).slice(
-      -2
-    )
+    let formattedMonthInNumber = ('0' + (parseInt(date.getMonth()) + 1)).slice(-2)
     let formattedYear = date.getFullYear()
-    if (dateFormat === 'DD/MM/YYYY')
-      return `${formattedDate}/${formattedMonthInNumber}/${formattedYear}`
-    if (dateFormat === 'DD-MM-YYYY')
-      return `${formattedDate}-${formattedMonthInNumber}-${formattedYear}`
-    if (dateFormat === 'YYYY-MM-DD')
-      return `${formattedYear}-${formattedMonthInNumber}-${formattedDate}`
-    if (dateFormat === 'D d M, Y')
-      return `${formattedDay} ${formattedDate} ${formattedMonthShortName} ${formattedYear}`
+    if (dateFormat === 'DD/MM/YYYY') return `${formattedDate}/${formattedMonthInNumber}/${formattedYear}`
+    if (dateFormat === 'DD-MM-YYYY') return `${formattedDate}-${formattedMonthInNumber}-${formattedYear}`
+    if (dateFormat === 'YYYY-MM-DD') return `${formattedYear}-${formattedMonthInNumber}-${formattedDate}`
+    if (dateFormat === 'D d M, Y') return `${formattedDay} ${formattedDate} ${formattedMonthShortName} ${formattedYear}`
     return `${formattedDay} ${formattedDate} ${formattedMonth} ${formattedYear}`
   }
 
@@ -179,25 +160,10 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
   return (
     <>
       <StyledContainer callback={() => setOpen(false)} width={width}>
-        <Container
-          display="flex"
-          position="relative"
-          width="100%"
-          flexDirection={isRow ? 'row' : 'column'}
-        >
-          <Container
-            display="flex"
-            flexDirection="row"
-            gap="0.25rem"
-            margin={'0.25rem 0px'}
-            height="2rem"
-          >
+        <Container display="flex" position="relative" width="100%" flexDirection={isRow ? 'row' : 'column'}>
+          <Container display="flex" flexDirection="row" gap="0.25rem" margin={'0.25rem 0px'} height="2rem">
             {label && (
-              <StyledLabel
-                labelFontSize={labelFontSize}
-                width={isRow ? '8rem' : ''}
-                htmlFor={name}
-              >
+              <StyledLabel labelFontSize={labelFontSize} width={isRow ? '8rem' : ''} htmlFor={name}>
                 {label}
                 {required && <StyledSpanRequired>*</StyledSpanRequired>}
               </StyledLabel>
@@ -214,13 +180,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
                   width="100%"
                   color="#000"
                 >
-                  {value ? (
-                    <>{value}</>
-                  ) : (
-                    <Container color="rgb(156 163 175)">
-                      {placeholder}
-                    </Container>
-                  )}
+                  {value ? <>{value}</> : <Container color="rgb(156 163 175)">{placeholder}</Container>}
                 </Container>
               </StyledButton>
               <StyledContainerIcon
@@ -233,18 +193,8 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
                 justifyContent="center"
                 onClick={() => setOpen(true)}
               >
-                <ContainerIconSpan
-                  display="flex"
-                  alignItems="center"
-                  position="absolute"
-                  padding="0 0.5rem 0 0"
-                >
-                  <StyledIcon
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
+                <ContainerIconSpan display="flex" alignItems="center" position="absolute" padding="0 0.5rem 0 0">
+                  <StyledIcon xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -255,105 +205,45 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
                 </ContainerIconSpan>
               </StyledContainerIcon>
             </StyledInputContainer>
-            <StyledHelpText $helpTextColor={helpTextColor}>
-              {helpText}
-            </StyledHelpText>
+            <StyledHelpText $helpTextColor={helpTextColor}>{helpText}</StyledHelpText>
           </Container>
           {open && (
             // eslint-disable-next-line
-            <ContainerCalendar
-              position="absolute"
-              $isRow={isRow}
-              onClick={() => setOpen(true)}
-            >
+            <ContainerCalendar position="absolute" $isRow={isRow} onClick={() => setOpen(true)}>
               <StyledCalendar>
-                <Container
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="space-between"
-                  margin="0 0 0.5rem 0"
-                >
-                  <Container
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                  >
+                <Container display="flex" alignItems="center" justifyContent="space-between" margin="0 0 0.5rem 0">
+                  <Container display="flex" alignItems="center" justifyContent="space-between">
                     <ArrowButton type="button" onClick={() => prevMonth()}>
-                      <ArrowIcon
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 19l-7-7 7-7"
-                        />
+                      <ArrowIcon fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </ArrowIcon>
                     </ArrowButton>
                     <Text.Body size="m" weight="bold" color="Neutral9">
                       {MONTH_NAMES[month]}
                     </Text.Body>
                     <ArrowButton type="button" onClick={() => nextMonth()}>
-                      <ArrowIcon
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
+                      <ArrowIcon fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </ArrowIcon>
                     </ArrowButton>
                   </Container>
-                  <Container
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                  >
+                  <Container display="flex" alignItems="center" justifyContent="space-between">
                     <ArrowButton type="button" onClick={() => prevYear()}>
-                      <ArrowIcon
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 19l-7-7 7-7"
-                        />
+                      <ArrowIcon fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </ArrowIcon>
                     </ArrowButton>
                     <Text.Body weight="bold" size="m" color="Neutral9">
                       {year}
                     </Text.Body>
                     <ArrowButton type="button" onClick={() => nextYear()}>
-                      <ArrowIcon
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
+                      <ArrowIcon fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </ArrowIcon>
                     </ArrowButton>
                   </Container>
                 </Container>
-                <Container
-                  display="flex"
-                  flexDirection="row"
-                  flexWrap="wrap"
-                  margin="0 -0.25rem 0.75rem -0.25rem"
-                >
+                <Container display="flex" flexDirection="row" flexWrap="wrap" margin="0 -0.25rem 0.75rem -0.25rem">
                   {DAYS.map((item, i) => {
                     return (
                       <Container key={i} padding="0 1.125rem" width="14.26%">
@@ -370,11 +260,7 @@ const DatePicker: React.FC<DatePickerProps> = (props) => {
                   })}
                   {noOfDays.map((item, i) => {
                     return (
-                      <Container
-                        key={i}
-                        width="14.28%"
-                        padding="0 0.25rem 0.25rem 0.25rem"
-                      >
+                      <Container key={i} width="14.28%" padding="0 0.25rem 0.25rem 0.25rem">
                         {/* eslint-disable-next-line */}
                         <NoOfDaysItem
                           onClick={() => getDateValue(item)}

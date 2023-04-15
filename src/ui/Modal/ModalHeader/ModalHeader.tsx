@@ -30,34 +30,14 @@ const ModalHeader: React.FC<ModalHeaderProps> = (props) => {
       </Container>
 
       {onBack && (
-        <Container
-          display="flex"
-          alignItems="center"
-          justifyContent="start"
-          width="100%"
-        >
-          <Button
-            leadingIcon="ri-arrow-left-s-line"
-            hierarchy="tertiary"
-            onClick={onBack}
-            label={backTitle}
-          />
+        <Container display="flex" alignItems="center" justifyContent="start" width="100%">
+          <Button leadingIcon="ri-arrow-left-s-line" hierarchy="tertiary" onClick={onBack} label={backTitle} />
         </Container>
       )}
 
       {onClose && (
-        <Container
-          display="flex"
-          alignItems="center"
-          justifyContent="end"
-          width="100%"
-        >
-          <Button
-            leadingIcon="ri-close-line"
-            hierarchy="tertiary"
-            shape="round"
-            onClick={onClose}
-          />
+        <Container display="flex" alignItems="center" justifyContent="end" width="100%">
+          <Button leadingIcon="ri-close-line" hierarchy="tertiary" shape="round" onClick={onClose} />
         </Container>
       )}
     </StyledContainerHeader>

@@ -12,9 +12,7 @@ type SegmentedControlProps<T> = {
   width?: string
 }
 
-const SegmentedControl = <T extends string>(
-  props: SegmentedControlProps<T>
-) => {
+const SegmentedControl = <T extends string>(props: SegmentedControlProps<T>) => {
   const { name, options, callback, defaultValue, width } = props
   const [checked, setChecked] = useState<T | undefined>(defaultValue)
 

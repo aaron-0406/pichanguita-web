@@ -15,26 +15,11 @@ const InputTextArea: React.FC<InputTextAreaProps> = (props) => {
   const { disabled, width, hasError = false, rows, ...rest } = props
 
   return (
-    <StyledInputTextAreaWrapper
-      width={width}
-      display="flex"
-      position="relative"
-    >
-      <StyledTextArea
-        disabled={disabled}
-        $hasError={hasError}
-        $width={width}
-        rows={rows}
-        {...rest}
-      />
+    <StyledInputTextAreaWrapper width={width} display="flex" position="relative">
+      <StyledTextArea disabled={disabled} $hasError={hasError} $width={width} rows={rows} {...rest} />
 
       {!disabled && hasError && (
-        <Icon
-          size={20}
-          containerClassName="error__icon"
-          remixClass="ri-error-warning-line"
-          color="Danger5"
-        />
+        <Icon size={20} containerClassName="error__icon" remixClass="ri-error-warning-line" color="Danger5" />
       )}
     </StyledInputTextAreaWrapper>
   )

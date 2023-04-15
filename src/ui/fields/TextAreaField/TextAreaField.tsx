@@ -8,10 +8,7 @@ import type { HelperFieldProps, LabelFieldProps } from '../interfaces'
 import InputTextArea from '../../inputs/InputTextArea'
 import InputLabel from '../../Label'
 
-type TextAreaFieldProps = Omit<
-  React.TextareaHTMLAttributes<HTMLTextAreaElement>,
-  'size'
-> &
+type TextAreaFieldProps = Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> &
   LabelFieldProps &
   HelperFieldProps & {
     width?: string
@@ -38,15 +35,10 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
   } = props
 
   const [countDown, setCountDown] = useState<number>(
-    props.defaultValue
-      ? props.defaultValue?.toString()?.length
-      : value
-      ? value?.toString()?.length
-      : initialCounter
+    props.defaultValue ? props.defaultValue?.toString()?.length : value ? value?.toString()?.length : initialCounter
   )
 
-  const charactersLimitSize =
-    size === 'small' ? CHARACTERS_LIMIT_SMALL_SIZE : charactersLimit
+  const charactersLimitSize = size === 'small' ? CHARACTERS_LIMIT_SMALL_SIZE : charactersLimit
 
   const onKeyUpInput = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.currentTarget.value) {
@@ -68,12 +60,7 @@ const TextAreaField: React.FC<TextAreaFieldProps> = (props) => {
       />
 
       <Container display="flex" flexDirection="column" gap="4px">
-        <InputTextArea
-          value={value}
-          onKeyUp={onKeyUpInput}
-          size={size}
-          {...rest}
-        />
+        <InputTextArea value={value} onKeyUp={onKeyUpInput} size={size} {...rest} />
 
         <HelperText
           wrap={wrap}

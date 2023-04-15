@@ -16,13 +16,7 @@ const Label: React.FC<LabelProps> = (props) => {
   const { label, name, disabled, required, optional, tooltipMessage } = props
 
   return (
-    <StyledLabelContainer
-      display="flex"
-      flexDirection="row"
-      alignItems="center"
-      gap="4px"
-      $disabled={disabled}
-    >
+    <StyledLabelContainer display="flex" flexDirection="row" alignItems="center" gap="4px" $disabled={disabled}>
       {required && (
         <Text.Body size="m" weight="bold" className="required__text">
           *
@@ -36,14 +30,7 @@ const Label: React.FC<LabelProps> = (props) => {
       )}
 
       {/* TODO: add tooltip library here and fix color*/}
-      {!!tooltipMessage && (
-        <Icon
-          size={16}
-          className="tooltip"
-          remixClass="ri-information-line"
-          color="Neutral5"
-        />
-      )}
+      {!!tooltipMessage && <Icon size={16} className="tooltip" remixClass="ri-information-line" color="Neutral5" />}
 
       {optional && (
         <Text.Body className="optional__text" size="m" weight="regular">

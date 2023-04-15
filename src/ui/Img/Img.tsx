@@ -7,11 +7,7 @@ export type ImgProps = React.ComponentProps<'img'> & {
   placeholderProps?: React.ComponentProps<'img'>
 }
 
-const Img: React.FC<ImgProps> = ({
-  placeholderImage,
-  placeholderProps,
-  ...props
-}) => {
+const Img: React.FC<ImgProps> = ({ placeholderImage, placeholderProps, ...props }) => {
   const [imageUploadError, setImageUploadError] = useState<boolean>(false)
 
   const onSetImageUploadError = () => {
@@ -23,12 +19,7 @@ const Img: React.FC<ImgProps> = ({
       {!imageUploadError && !!props.src ? (
         <img {...props} onError={onSetImageUploadError} />
       ) : (
-        <img
-          {...props}
-          {...placeholderProps}
-          src={placeholderImage}
-          role="img-placeholder"
-        />
+        <img {...props} {...placeholderProps} src={placeholderImage} role="img-placeholder" />
       )}
     </>
   )

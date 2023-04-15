@@ -29,11 +29,7 @@ type InputTextProps = InputProps & {
 const InputText = forwardRef(
   (
     props: InputTextProps,
-    ref:
-      | ((instance: HTMLInputElement | null) => void)
-      | React.RefObject<HTMLInputElement>
-      | null
-      | undefined
+    ref: ((instance: HTMLInputElement | null) => void) | React.RefObject<HTMLInputElement> | null | undefined
   ) => {
     const {
       width,
@@ -48,7 +44,7 @@ const InputText = forwardRef(
       leadingIcon,
       trailingIcon,
       numberCharacters,
-      size = 'small',
+      size = 's',
       hasError = false,
       clearInput = false,
       ...rest
@@ -77,21 +73,9 @@ const InputText = forwardRef(
           </Container>
         )}
 
-        {!!icon && (
-          <Img
-            placeholderImage={icon}
-            width={'20%'}
-            className="icon-image"
-          />
-        )}
+        {!!icon && <Img placeholderImage={icon} width={'20%'} className="icon-image" />}
 
-        {!!iconFocus && (
-          <Img
-            placeholderImage={iconFocus}
-            width={'20%'}
-            className="icon-focus__image"
-          />
-        )}
+        {!!iconFocus && <Img placeholderImage={iconFocus} width={'20%'} className="icon-focus__image" />}
 
         {!!prefix && (
           <Text.Body size="m" weight="regular" className="prefix__text">
@@ -109,11 +93,7 @@ const InputText = forwardRef(
 
         {!disabled && hasError ? (
           <div className="error__icon">
-            <Icon
-              size={20}
-              remixClass="ri-error-warning-line"
-              color="Danger5"
-            />
+            <Icon size={20} remixClass="ri-error-warning-line" color="Danger5" />
           </div>
         ) : !disabled && clearInput && numberCharacters ? (
           <Icon
@@ -133,11 +113,7 @@ const InputText = forwardRef(
               height="24px"
               className="trailing__icon"
             >
-              <Icon
-                size={20}
-                remixClass={trailingIcon}
-                onClick={onClickTrailingIcon}
-              />
+              <Icon size={20} remixClass={trailingIcon} onClick={onClickTrailingIcon} />
             </Container>
           )
         )}
@@ -159,11 +135,11 @@ const StyledInputWrapper = styled.div<{
   $iconFocus?: string
   $visibleImage?: string
 }>`
-  ${({ theme, $disabled, $hasError, $size, $width, $iconFocus, $icon, $visibleImage }) => css`
+  ${({ theme, $disabled, $hasError, $size, $width, $iconFocus, $visibleImage }) => css`
     display: flex;
     align-items: center;
     width: ${!!$width ? $width : 'auto'};
-    height: ${$size === 'small' ? '40px' : '48px'};
+    height: ${$size === 's' ? '40px' : $size === 'l' ? '48px' : '50px'};
     color: ${theme.colors.Neutral6};
     background: ${theme.colors.Neutral0};
     border: 2px solid ${theme.colors.Neutral4};
@@ -194,8 +170,8 @@ const StyledInputWrapper = styled.div<{
     :focus-within {
       border: 2px solid ${theme.colors.Primary2};
     }
-    .icon-image{
-      display: ${$visibleImage};  
+    .icon-image {
+      display: ${$visibleImage};
     }
 
     .icon-focus__image {
@@ -226,15 +202,6 @@ const StyledInputWrapper = styled.div<{
         }
       }
     `}
-
-    /* ${$icon &&
-    css`
-      :active {
-        .icon-image {
-          display: block;
-        }
-      }
-    `} */
 
     ${$disabled &&
     css`
