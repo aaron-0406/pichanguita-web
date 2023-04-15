@@ -4,7 +4,7 @@ import LoginRight from '../../../components/Login/LoginRight'
 
 import { StyledContainerLogin } from '../../../components/Login/LoginStyle'
 
-const Login = () => {
+const AppLogin = () => {
   return (
     <StyledContainerLogin
       width={'100vw'}
@@ -19,4 +19,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default AppLogin
