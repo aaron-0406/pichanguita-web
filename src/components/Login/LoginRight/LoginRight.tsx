@@ -2,8 +2,6 @@ import styled, { css } from 'styled-components'
 
 import Container from '../../../ui/Container'
 import Img from '../../../ui/Img'
-import InputText from '../../../ui/inputs/InputText'
-import Button from '../../../ui/Button'
 import Phone from './Phone'
 
 import SocialMedia from '../../../components/Login/LoginRight/SocialMedia'
