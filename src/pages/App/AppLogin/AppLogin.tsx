@@ -9,7 +9,7 @@ import Text from '../../../ui/Text'
 import jugadorImg from '../../../shared/assets/img/loginJugador.png'
 import logoImgLogin from '../../../shared/assets/img/pichanguita.png'
 
-const Login = () => {
+const AppLogin = () => {
   return (
     <StyledContainerLogin
       width={'100vw'}
@@ -73,24 +73,16 @@ const Login = () => {
         justifyContent={'center'}
         backgroundColor={'#EBF6FC'}
       >
-        <Container
-          width={"210px"}
-        >
+        <Container width={'210px'}>
           <Img placeholderImage={logoImgLogin} width={'100%'} />
         </Container>
-        <Container
-        width={"250px"}
-        height={"100px"}
-        display='flex'
-        flexDirection="column"
-        justifyContent='space-around'
-        >
-          <Button label="continuar con facebook" size='small' shape='pill'></Button>
-          <Button label= "continuar con google" size='small' shape='pill'></Button>
+        <Container width={'250px'} height={'100px'} display="flex" flexDirection="column" justifyContent="space-around">
+          <Button label="continuar con facebook" size="small" shape="pill"></Button>
+          <Button label="continuar con google" size="small" shape="pill"></Button>
         </Container>
       </Container>
     </StyledContainerLogin>
   )
 }
 
-export default Login
+export default AppLogin

@@ -6,9 +6,18 @@ export default {
     validate: "/validate-token",
     notFound: "/not-found",
   },
-  
-  auth: {
-    signin: '/dash/iniciar-sesion',
-    signup: '/dash/registrarse',
+  app: {
+    root: '/app',
+    auth: {
+      signin: '/app/iniciar-sesion',
+      signup: '/app/registrarse',
+    },
+  },
+  dashboard: {
+    root: '/dash',
+    auth: {
+      signin: '/dash/iniciar-sesion',
+      signup: '/dash/registrarse',
+    },
   },
 }
