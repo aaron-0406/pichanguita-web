@@ -35,7 +35,7 @@ body {
 }
 
 hr {
-  height: 0;
+  height: 0px;
   color: inherit;
   border-top-width: 1px;
 }

@@ -5,3 +5,5 @@ export type ButtonSizeType = 'small' | 'default'
 export type ButtonClassType = 'warning' | 'danger'  | 'default' 
 
 export type ButtonShapeType = 'default' | 'round' | 'pill'
+
+export type ButtonWeight = 'regular' | 'bold'

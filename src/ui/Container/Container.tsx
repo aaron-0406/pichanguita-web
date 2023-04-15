@@ -13,6 +13,10 @@ export type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   justifySelf?: CSS.Property.JustifySelf
   textAlign?: CSS.Property.TextAlign
   position?: CSS.Property.Position
+  top?: CSS.Property.Top
+  bottom?: CSS.Property.Bottom
+  left?: CSS.Property.Left
+  right?: CSS.Property.Right
   centered?: boolean
   fullScreen?: boolean
   minHeight?: CSS.Property.MinHeight
@@ -119,7 +123,7 @@ export const StyledContainer = styled.div<ContainerProps>`
       justify-self: ${justifySelf};
     `}
 
-  ${({ justifyItems}) =>
+  ${({ justifyItems }) =>
     !!justifyItems &&
     css`
       justify-items: ${justifyItems};
@@ -135,6 +139,29 @@ export const StyledContainer = styled.div<ContainerProps>`
     !!position &&
     css`
       position: ${position};
+    `}
+  ${({ top }) =>
+    !!top &&
+    css`
+      top: ${top};
+    `}
+
+  ${({ bottom }) =>
+    !!bottom &&
+    css`
+      bottom: ${bottom};
+    `}
+
+  ${({ left }) =>
+    !!left &&
+    css`
+      left: ${left};
+    `}
+
+  ${({ right }) =>
+    !!right &&
+    css`
+      right: ${right};
     `}
 
   ${({ minHeight }) =>

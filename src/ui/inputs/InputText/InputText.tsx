@@ -7,8 +7,12 @@ import type { InputProps } from '../Input/Input'
 import Input from '../Input'
 import type { InputSize } from '../Input/Input.interfaces'
 import Text from '../../Text'
+import Img from '../../Img'
 
 type InputTextProps = InputProps & {
+  visibleImage?: string
+  icon?: string
+  iconFocus?: string
   tooltipMessage?: string
   leadingIcon?: string
   trailingIcon?: string
@@ -34,6 +38,9 @@ const InputText = forwardRef(
     const {
       width,
       suffix,
+      visibleImage,
+      icon,
+      iconFocus,
       prefix,
       onClear,
       onClickTrailingIcon,
@@ -49,10 +56,13 @@ const InputText = forwardRef(
 
     return (
       <StyledInputWrapper
+        $icon={icon}
         $size={size}
         $hasError={hasError}
         $disabled={disabled}
         $width={width}
+        $iconFocus={iconFocus}
+        $visibleImage={visibleImage}
       >
         {!!leadingIcon && (
           <Container
@@ -65,6 +75,22 @@ const InputText = forwardRef(
           >
             <Icon size={20} remixClass={leadingIcon} />
           </Container>
+        )}
+
+        {!!icon && (
+          <Img
+            placeholderImage={icon}
+            width={'20%'}
+            className="icon-image"
+          />
+        )}
+
+        {!!iconFocus && (
+          <Img
+            placeholderImage={iconFocus}
+            width={'20%'}
+            className="icon-focus__image"
+          />
         )}
 
         {!!prefix && (
@@ -125,12 +151,15 @@ InputText.displayName = 'InputText'
 export default InputText
 
 const StyledInputWrapper = styled.div<{
+  $icon?: string
   $disabled?: boolean
   $hasError?: boolean
   $size: InputSize
   $width?: string
+  $iconFocus?: string
+  $visibleImage?: string
 }>`
-  ${({ theme, $disabled, $hasError, $size, $width }) => css`
+  ${({ theme, $disabled, $hasError, $size, $width, $iconFocus, $icon, $visibleImage }) => css`
     display: flex;
     align-items: center;
     width: ${!!$width ? $width : 'auto'};
@@ -163,7 +192,14 @@ const StyledInputWrapper = styled.div<{
     }
 
     :focus-within {
-      border: 2px solid ${theme.colors.Primary5};
+      border: 2px solid ${theme.colors.Primary2};
+    }
+    .icon-image{
+      display: ${$visibleImage};  
+    }
+
+    .icon-focus__image {
+      display: none;
     }
 
     ${$hasError &&
@@ -181,6 +217,24 @@ const StyledInputWrapper = styled.div<{
         border: 2px solid ${theme.colors.Danger5};
       }
     `}
+
+    ${$iconFocus &&
+    css`
+      :focus-within {
+        .icon-focus__image {
+          display: block;
+        }
+      }
+    `}
+
+    /* ${$icon &&
+    css`
+      :active {
+        .icon-image {
+          display: block;
+        }
+      }
+    `} */
 
     ${$disabled &&
     css`

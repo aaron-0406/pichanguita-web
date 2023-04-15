@@ -24,6 +24,7 @@ type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> & {
   width?: string
   maxWidth?: string
   label?: React.ReactNode
+  weight?: string
 }
 
 /**
@@ -51,15 +52,23 @@ const Button: React.FC<ButtonProps> = (props) => {
     display = 'default',
     shape = 'default',
     loading = false,
+    weight = 'bold',
     ...rest
   } = props
 
   const theme = useTheme()
 
-  const textStyle =
-    hierarchy === 'link' && size === 'default'
-      ? theme.typography.body.l.bold
+  const textL =
+    weight === 'regular'
+      ? theme.typography.body.l.regular
+      : theme.typography.body.l.bold
+
+  const textM =
+    weight === 'regular'
+      ? theme.typography.body.m.regular
       : theme.typography.body.m.bold
+
+  const textStyle = hierarchy === 'link' && size === 'default' ? textL : textM
 
   return (
     <StyledButton
