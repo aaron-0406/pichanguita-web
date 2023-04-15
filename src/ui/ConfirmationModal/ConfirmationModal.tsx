@@ -7,10 +7,7 @@ import Container from '../Container'
 import Icon from '../Icon'
 import Text from '../Text'
 
-const actionsConfig: Record<
-  ConfirmationModalType,
-  { iconClass: string; color: keyof IThemeColor }
-> = {
+const actionsConfig: Record<ConfirmationModalType, { iconClass: string; color: keyof IThemeColor }> = {
   success: {
     iconClass: 'ri-checkbox-circle-line',
     color: 'Success5',
@@ -83,21 +80,9 @@ const ConfirmationModal: React.FC<ModalProps> = (props) => {
               {!!body
                 ? body
                 : !!config && (
-                    <Container
-                      key="1"
-                      display="flex"
-                      flexDirection="row"
-                      gap="16px"
-                    >
-                      <Icon
-                        remixClass={config.iconClass}
-                        color={config.color}
-                      />
-                      <Container
-                        display="flex"
-                        flexDirection="column"
-                        gap="16px"
-                      >
+                    <Container key="1" display="flex" flexDirection="row" gap="16px">
+                      <Icon remixClass={config.iconClass} color={config.color} />
+                      <Container display="flex" flexDirection="column" gap="16px">
                         <Text.Body size="m" weight="bold">
                           {title}
                         </Text.Body>
@@ -110,13 +95,7 @@ const ConfirmationModal: React.FC<ModalProps> = (props) => {
                   )}
             </StyledContent>
 
-            <Container
-              display="flex"
-              flexDirection="row"
-              justifyContent="flex-end"
-              padding="24px"
-              gap="8px"
-            >
+            <Container display="flex" flexDirection="row" justifyContent="flex-end" padding="24px" gap="8px">
               {footer}
             </Container>
           </StyledModalBox>

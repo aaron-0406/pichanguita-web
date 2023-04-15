@@ -6,9 +6,6 @@ export type LabelFieldProps = Pick<
   'label' | 'disabled' | 'optional' | 'required' | 'tooltipMessage' | 'name'
 >
 
-export type HelperFieldProps = Pick<
-  HelperTextProps,
-  'wrap' | 'hasError' | 'disabled' | 'charactersLimit'
-> & {
+export type HelperFieldProps = Pick<HelperTextProps, 'wrap' | 'hasError' | 'disabled' | 'charactersLimit'> & {
   helperText?: string
 }

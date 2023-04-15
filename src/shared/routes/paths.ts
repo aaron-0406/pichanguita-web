@@ -3,8 +3,8 @@ export default {
   root: '/',
   error: '/error',
   general: {
-    validate: "/validate-token",
-    notFound: "/not-found",
+    validate: '/validate-token',
+    notFound: '/not-found',
   },
   app: {
     root: '/app',

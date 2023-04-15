@@ -1,1 +1,1 @@
-export {default} from './LoginLeft'
+export { default } from './LoginLeft'

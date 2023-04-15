@@ -8,7 +8,6 @@ import SocialMedia from '../../../components/Login/LoginRight/SocialMedia'
 
 import logoImgLogin from '../../../shared/assets/img/pichanguita.png'
 
-
 const LoginRight = () => {
   return (
     <Styles
@@ -29,11 +28,9 @@ const LoginRight = () => {
 
       <hr />
 
-      <Phone/>
+      <Phone />
 
       <hr />
-
-
     </Styles>
   )
 }
@@ -41,7 +38,6 @@ export default LoginRight
 
 const Styles = styled(Container)`
   ${({ theme }) => css`
-
     hr {
       width: 250px;
       margin: 5px 0;

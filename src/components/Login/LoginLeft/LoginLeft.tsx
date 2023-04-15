@@ -61,8 +61,8 @@ export default LoginLeft
 
 const StylesLinks = styled(Container)`
   ${({ theme }) => css`
-      @media ${theme.device.desktopS} {
-        left: 20px;
-      }
+    @media ${theme.device.desktopS} {
+      left: 20px;
+    }
   `}
 `

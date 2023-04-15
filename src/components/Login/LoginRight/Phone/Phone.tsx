@@ -10,13 +10,7 @@ const Phone = () => {
   const [displayImage, setDisplayImage] = useState('none')
 
   return (
-    <Container
-      height={'42px'}
-      width={'300px'}
-      display="flex"
-      justifyContent="space-between"
-      alignItems="center"
-    >
+    <Container height={'42px'} width={'300px'} display="flex" justifyContent="space-between" alignItems="center">
       <InputText
         icon={iconPeru}
         numberCharacters={9}

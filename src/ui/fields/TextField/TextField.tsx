@@ -8,10 +8,7 @@ import type { HelperFieldProps, LabelFieldProps } from '../interfaces'
 import InputText from '../../inputs/InputText'
 import InputLabel from '../../Label'
 
-type TextFieldProps = Omit<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  'size'
-> &
+type TextFieldProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> &
   LabelFieldProps &
   HelperFieldProps & {
     width?: string
@@ -46,10 +43,7 @@ const TextField: React.FC<TextFieldProps> = (props) => {
   const inputEvent = new Event('change', { bubbles: true })
 
   const onClear = () => {
-    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
-      HTMLInputElement?.prototype,
-      'value'
-    )?.set
+    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(HTMLInputElement?.prototype, 'value')?.set
 
     if (inputRef.current && nativeInputValueSetter) {
       nativeInputValueSetter.call(inputRef.current, '')
@@ -63,11 +57,7 @@ const TextField: React.FC<TextFieldProps> = (props) => {
   }
 
   const [countDown, setCountDown] = useState<number>(
-    props.defaultValue
-      ? props.defaultValue?.toString()?.length
-      : value
-      ? value?.toString()?.length
-      : initialCounter
+    props.defaultValue ? props.defaultValue?.toString()?.length : value ? value?.toString()?.length : initialCounter
   )
 
   const onKeyUpInput = (event: React.KeyboardEvent<HTMLInputElement>) => {

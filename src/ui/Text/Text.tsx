@@ -1,12 +1,7 @@
 import get from 'lodash/get'
 import type { IRegular, IThemeColor } from 'styled-components'
 import styled, { css, useTheme } from 'styled-components'
-import type {
-  ITitleText,
-  IBodyText,
-  INumberText,
-  SpanProps,
-} from './interfaces'
+import type { ITitleText, IBodyText, INumberText, SpanProps } from './interfaces'
 
 type StyledTextProps = IRegular & {
   color?: keyof TextColor
@@ -69,11 +64,7 @@ const Text: React.FC<TextTypeProps & TextProps> = (props) => {
 
   const theme = useTheme()
 
-  const style = get(
-    theme.typography,
-    `${type}.${size}.${weight}`,
-    theme.typography.body.m.regular
-  )
+  const style = get(theme.typography, `${type}.${size}.${weight}`, theme.typography.body.m.regular)
 
   return <StyledText {...rest} {...style} ellipsis={ellipsis} />
 }

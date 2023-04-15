@@ -4,12 +4,7 @@ import styled, { css, useTheme } from 'styled-components'
 import CounterBadge from '../CounterBadge'
 import Icon from '../Icon'
 import Spinner from '../Spinner'
-import type {
-  ButtonClassType,
-  ButtonHierarchyType,
-  ButtonShapeType,
-  ButtonSizeType,
-} from './interfaces'
+import type { ButtonClassType, ButtonHierarchyType, ButtonShapeType, ButtonSizeType } from './interfaces'
 import style from './style'
 
 type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> & {
@@ -58,15 +53,9 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   const theme = useTheme()
 
-  const textL =
-    weight === 'regular'
-      ? theme.typography.body.l.regular
-      : theme.typography.body.l.bold
+  const textL = weight === 'regular' ? theme.typography.body.l.regular : theme.typography.body.l.bold
 
-  const textM =
-    weight === 'regular'
-      ? theme.typography.body.m.regular
-      : theme.typography.body.m.bold
+  const textM = weight === 'regular' ? theme.typography.body.m.regular : theme.typography.body.m.bold
 
   const textStyle = hierarchy === 'link' && size === 'default' ? textL : textM
 
@@ -90,18 +79,10 @@ const Button: React.FC<ButtonProps> = (props) => {
           />
         )}
 
-        {loading ? (
-          <Spinner />
-        ) : (
-          leadingIcon && (
-            <Icon className="leading-icon" remixClass={leadingIcon} />
-          )
-        )}
+        {loading ? <Spinner /> : leadingIcon && <Icon className="leading-icon" remixClass={leadingIcon} />}
 
         <StyledButtonText {...textStyle}>{label}</StyledButtonText>
-        {trailingIcon && !loading && (
-          <Icon className="trailing-icon" remixClass={trailingIcon} />
-        )}
+        {trailingIcon && !loading && <Icon className="trailing-icon" remixClass={trailingIcon} />}
       </div>
     </StyledButton>
   )

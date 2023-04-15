@@ -29,11 +29,7 @@ type InputTextProps = InputProps & {
 const InputText = forwardRef(
   (
     props: InputTextProps,
-    ref:
-      | ((instance: HTMLInputElement | null) => void)
-      | React.RefObject<HTMLInputElement>
-      | null
-      | undefined
+    ref: ((instance: HTMLInputElement | null) => void) | React.RefObject<HTMLInputElement> | null | undefined
   ) => {
     const {
       width,
@@ -77,21 +73,9 @@ const InputText = forwardRef(
           </Container>
         )}
 
-        {!!icon && (
-          <Img
-            placeholderImage={icon}
-            width={'20%'}
-            className="icon-image"
-          />
-        )}
+        {!!icon && <Img placeholderImage={icon} width={'20%'} className="icon-image" />}
 
-        {!!iconFocus && (
-          <Img
-            placeholderImage={iconFocus}
-            width={'20%'}
-            className="icon-focus__image"
-          />
-        )}
+        {!!iconFocus && <Img placeholderImage={iconFocus} width={'20%'} className="icon-focus__image" />}
 
         {!!prefix && (
           <Text.Body size="m" weight="regular" className="prefix__text">
@@ -109,11 +93,7 @@ const InputText = forwardRef(
 
         {!disabled && hasError ? (
           <div className="error__icon">
-            <Icon
-              size={20}
-              remixClass="ri-error-warning-line"
-              color="Danger5"
-            />
+            <Icon size={20} remixClass="ri-error-warning-line" color="Danger5" />
           </div>
         ) : !disabled && clearInput && numberCharacters ? (
           <Icon
@@ -133,11 +113,7 @@ const InputText = forwardRef(
               height="24px"
               className="trailing__icon"
             >
-              <Icon
-                size={20}
-                remixClass={trailingIcon}
-                onClick={onClickTrailingIcon}
-              />
+              <Icon size={20} remixClass={trailingIcon} onClick={onClickTrailingIcon} />
             </Container>
           )
         )}
@@ -194,8 +170,8 @@ const StyledInputWrapper = styled.div<{
     :focus-within {
       border: 2px solid ${theme.colors.Primary2};
     }
-    .icon-image{
-      display: ${$visibleImage};  
+    .icon-image {
+      display: ${$visibleImage};
     }
 
     .icon-focus__image {

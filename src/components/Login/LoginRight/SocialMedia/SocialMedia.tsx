@@ -5,27 +5,9 @@ import Button from '../../../../ui/Button'
 
 const SocialMedia = () => {
   return (
-    <Stytles
-      width={'300px'}
-      height={'100px'}
-      display="flex"
-      flexDirection="column"
-      justifyContent="space-around"
-    >
-      <Button
-        weight="regular"
-        label="continuar con facebook"
-        size="small"
-        shape="pill"
-        className="btn-facebook"
-      />
-      <Button
-        weight="regular"
-        label="continuar con google"
-        size="small"
-        shape="pill"
-        className="btn-google"
-      />
+    <Stytles width={'300px'} height={'100px'} display="flex" flexDirection="column" justifyContent="space-around">
+      <Button weight="regular" label="continuar con facebook" size="small" shape="pill" className="btn-facebook" />
+      <Button weight="regular" label="continuar con google" size="small" shape="pill" className="btn-google" />
     </Stytles>
   )
 }

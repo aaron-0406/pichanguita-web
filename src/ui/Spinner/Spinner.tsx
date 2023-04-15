@@ -3,14 +3,7 @@ import Container from '../Container'
 
 const Spinner = () => {
   return (
-    <StyledSpinner
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      width="24px"
-      height="24px"
-      readonly
-    >
+    <StyledSpinner display="flex" justifyContent="center" alignItems="center" width="24px" height="24px" readonly>
       <StyledIcon className="ri-loader-4-line spinning" />
     </StyledSpinner>
   )

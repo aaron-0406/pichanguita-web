@@ -21,9 +21,7 @@ type SelectProps<T, K> = LabelFieldProps &
     onChange?: (value: T, option: SelectItem<T, K>) => void
   }
 
-const Select = <T extends string, K extends Record<string, unknown>>(
-  props: SelectProps<T, K>
-) => {
+const Select = <T extends string, K extends Record<string, unknown>>(props: SelectProps<T, K>) => {
   const {
     wrap,
     helperText,
@@ -45,9 +43,7 @@ const Select = <T extends string, K extends Record<string, unknown>>(
 
   const [state, setState] = useState<SelectItem<T, K> | undefined>({
     key: defaultValue as T,
-    label: options?.find(
-      (option) => option.key === value || option.key === defaultValue
-    )?.label as T,
+    label: options?.find((option) => option.key === value || option.key === defaultValue)?.label as T,
   })
 
   const [toggleSelect, setToggleSelect] = useState<boolean>(false)
@@ -89,12 +85,7 @@ const Select = <T extends string, K extends Record<string, unknown>>(
       )}
 
       <Container position="relative" onClick={onSelectToogle} tabIndex={0}>
-        <StyledSelect
-          $size={size}
-          $hasError={hasError}
-          $disabled={disabled}
-          tabIndex={1}
-        >
+        <StyledSelect $size={size} $hasError={hasError} $disabled={disabled} tabIndex={1}>
           <Text.Body
             size={size === 'default' ? 'm' : 'l'}
             weight="regular"
@@ -120,11 +111,7 @@ const Select = <T extends string, K extends Record<string, unknown>>(
               height="24px"
               className="arrow__icon"
             >
-              <Icon
-                size={20}
-                remixClass="ri-arrow-down-s-line"
-                color="Neutral6"
-              />
+              <Icon size={20} remixClass="ri-arrow-down-s-line" color="Neutral6" />
             </Container>
           </Container>
         </StyledSelect>
@@ -140,12 +127,7 @@ const Select = <T extends string, K extends Record<string, unknown>>(
         )}
       </Container>
 
-      <HelperText
-        wrap={wrap}
-        hasError={hasError}
-        disabled={disabled}
-        width={width}
-      >
+      <HelperText wrap={wrap} hasError={hasError} disabled={disabled} width={width}>
         {helperText}
       </HelperText>
     </StyledWrapper>

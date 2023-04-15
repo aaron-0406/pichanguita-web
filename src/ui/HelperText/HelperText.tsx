@@ -35,12 +35,7 @@ const HelperText: React.FC<HelperTextProps> = ({
   wrap = false,
 }) => {
   return children || charactersLimit ? (
-    <Container
-      display="flex"
-      flexDirection="column"
-      position="relative"
-      width={width}
-    >
+    <Container display="flex" flexDirection="column" position="relative" width={width}>
       <StyledHelperTextWrapper
         display="flex"
         flexDirection="row"
@@ -78,9 +73,7 @@ interface StyledHelperTextWrapperProps {
  * Styled HelperText Wrapper Text Component
  * Do not export, use HelperText
  */
-export const StyledHelperTextWrapper = styled(
-  Container
-)<StyledHelperTextWrapperProps>`
+export const StyledHelperTextWrapper = styled(Container)<StyledHelperTextWrapperProps>`
   ${({ theme, $wrap, $disabled, $hasError }) => css`
     white-space: ${$wrap ? 'normal' : 'nowrap'};
 
