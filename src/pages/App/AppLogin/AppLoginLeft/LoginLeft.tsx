@@ -29,7 +29,7 @@ const LoginLeft = () => {
       </Container>
       <NavLink to="/app/registrarse" className="btn-registrar">
         <Text.Body size="l" weight="bold" color="Neutral0">
-          Home
+          Crear Cuenta
         </Text.Body>
       </NavLink>
       <StylesLinks

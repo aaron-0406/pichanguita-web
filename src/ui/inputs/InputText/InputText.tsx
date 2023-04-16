@@ -168,7 +168,7 @@ const StyledInputWrapper = styled.div<{
     }
 
     :focus-within {
-      border: 2px solid ${theme.colors.Primary2};
+      border: 2px solid ${theme.colors.Neutral6};
     }
     .icon-image {
       display: ${$visibleImage};
