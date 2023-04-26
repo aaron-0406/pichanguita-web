@@ -33,7 +33,7 @@ const Styles = styled(Container)`
     hr {
       background-color: ${theme.colors.Neutral7};
       width: 100%;
-      margin: 20px 0;
+      margin: 10px 0;
       height: 2px;
     }
   `}

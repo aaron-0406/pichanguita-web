@@ -5,7 +5,7 @@ import Button from '../../../../ui/Button'
 
 const SocialMedia = () => {
   return (
-    <Stytles width="320px" height="100px" display="flex" flexDirection="column" justifyContent="space-around">
+    <Styles width="320px" height="23%" display="flex" flexDirection="column" justifyContent="space-around">
       <Button
         leadingIcon="ri-facebook-circle-fill"
         weight="regular"
@@ -22,19 +22,18 @@ const SocialMedia = () => {
         shape="pill"
         className="btn-google"
       />
-    </Stytles>
+    </Styles>
   )
 }
 export default SocialMedia
 
-const Stytles = styled(Container)`
+const Styles = styled(Container)`
   ${({ theme }) => css`
     .btn-facebook {
       font-weight: 100;
       background-color: ${theme.colors.ColorFacebook};
       border: none;
       color: black;
-      margin-bottom: 20px;
     }
     .btn-facebook div {
       display: flex;

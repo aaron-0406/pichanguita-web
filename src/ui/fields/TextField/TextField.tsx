@@ -19,6 +19,7 @@ type TextFieldProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> 
     size?: InputSize
     clearInput?: boolean
     onClickTrailing?: (value: string) => void
+    forwardedRef?: React.RefObject<HTMLInputElement>
   }
 
 const initialCounter = 0
@@ -35,10 +36,11 @@ const TextField: React.FC<TextFieldProps> = (props) => {
     required,
     charactersLimit,
     onClickTrailing,
+    forwardedRef,
     ...rest
   } = props
 
-  const inputRef = createRef<HTMLInputElement>()
+  const inputRef = forwardedRef || createRef<HTMLInputElement>()
 
   const inputEvent = new Event('change', { bubbles: true })
 
@@ -57,6 +59,7 @@ const TextField: React.FC<TextFieldProps> = (props) => {
   }
 
   const [countDown, setCountDown] = useState<number>(
+    //
     props.defaultValue ? props.defaultValue?.toString()?.length : value ? value?.toString()?.length : initialCounter
   )
 

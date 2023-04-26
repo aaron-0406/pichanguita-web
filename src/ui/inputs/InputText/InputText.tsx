@@ -78,12 +78,12 @@ const InputText = forwardRef(
         {!!iconFocus && <Img placeholderImage={iconFocus} width={'20%'} className="icon-focus__image" />}
 
         {!!prefix && (
-          <Text.Body size="m" weight="regular" className="prefix__text">
+          <Text.Body size="l" weight="regular" className="prefix__text">
             {prefix}
           </Text.Body>
         )}
 
-        <Input ref={ref} disabled={disabled} size={size} {...rest} />
+        <Input  ref={ref} disabled={disabled} size={size} {...rest} />
 
         {!!suffix && (
           <Text.Body size="m" weight="regular" className="suffix__text">
@@ -160,7 +160,7 @@ const StyledInputWrapper = styled.div<{
 
     .prefix__text,
     .suffix__text {
-      color: ${theme.colors.Neutral6};
+      color: ${theme.colors.Neutral9};
     }
 
     :hover {

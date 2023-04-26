@@ -53,6 +53,7 @@ type TextColor = Pick<
 type TextProps = SpanProps & {
   color?: keyof TextColor
   ellipsis?: boolean
+  brayan?: string
 }
 
 /**
@@ -60,7 +61,7 @@ type TextProps = SpanProps & {
  * This is a base component, do not export, use Title, Body, Number instead
  */
 const Text: React.FC<TextTypeProps & TextProps> = (props) => {
-  const { type, size, weight, ellipsis = false, ...rest } = props
+  const { brayan, type, size, weight, ellipsis = false, ...rest } = props
 
   const theme = useTheme()
 

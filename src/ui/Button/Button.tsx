@@ -8,6 +8,7 @@ import type { ButtonClassType, ButtonHierarchyType, ButtonShapeType, ButtonSizeT
 import style from './style'
 
 type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> & {
+  margin?: string
   counter?: number
   loading?: boolean
   leadingIcon?: string
@@ -20,6 +21,7 @@ type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> & {
   maxWidth?: string
   label?: React.ReactNode
   weight?: string
+  forwardedRef?: React.RefObject<HTMLButtonElement>
 }
 
 /**
@@ -37,6 +39,7 @@ type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'size'> & {
  */
 const Button: React.FC<ButtonProps> = (props) => {
   const {
+    margin = '0px',
     label,
     counter,
     leadingIcon,
@@ -48,6 +51,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     shape = 'default',
     loading = false,
     weight = 'bold',
+    forwardedRef,
     ...rest
   } = props
 
@@ -64,11 +68,13 @@ const Button: React.FC<ButtonProps> = (props) => {
       type="button"
       {...rest}
       size={size}
+      margin={margin}
       hierarchy={hierarchy}
       display={display}
       disabled={disabled}
       shape={shape}
       $loading={loading}
+      ref={forwardedRef}
     >
       <div className="button__container">
         {!!counter && (
@@ -112,6 +118,7 @@ const getButtonSize = (size?: ButtonSizeType, icon?: boolean) => {
  * Do not export, use Buttton
  */
 const StyledButton = styled.button<{
+  margin: string
   size: ButtonSizeType
   hierarchy: ButtonHierarchyType
   display: ButtonClassType
@@ -119,6 +126,7 @@ const StyledButton = styled.button<{
   $loading: boolean
   width?: string
   maxWidth?: string
+  ref?:React.RefObject<HTMLButtonElement>
 }>`
   white-space: nowrap;
   ${({ width }) =>
@@ -131,6 +139,11 @@ const StyledButton = styled.button<{
     !!maxWidth &&
     css`
       max-width: ${maxWidth};
+    `}
+  ${({ margin }) =>
+    !!margin &&
+    css`
+      margin: ${margin};
     `}
 
   ${({ shape, size }) => getButtonSize(size, shape === 'round')}
@@ -205,7 +218,7 @@ const StyledButton = styled.button<{
 
       &[disabled] {
         cursor: not-allowed;
-        background: ${config.disabled.background};
+        background: ${theme.colors.Neutral4};
         border: ${config.disabled.border};
         color: ${config.disabled.color};
 
